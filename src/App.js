@@ -1,26 +1,15 @@
 import './App.css'
+import Header from './components/Header';
+import Navbar from './components/Navbar';
+import Profile from './components/Profile';
 
 const App = () => {
 
   return (
-
     <div className="app-wrapper">
-      
-      <header className='header'>
-        <img src="" alt="" />
-      </header>
-
-      <nav className='nav'>
-        <div>Profile</div>
-        <div>Message</div>
-        <div>News</div>
-        <div>Misic</div>
-      </nav>
-
-      <div className='content'>
-        Main content
-      </div>
-      
+      <Header/>
+      <Navbar/>
+      <Profile/>
     </div>
   );
 };
