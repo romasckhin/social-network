@@ -9,20 +9,9 @@
 
     grid-template-rows: 60px 1fr;
     grid-template-columns: 2fr 10fr;
-
 }
 
-.header {
-    grid-area: h;
-    background-color: rgb(116, 223, 116);
-}
-
-.nav {
-    grid-area: n;
-    background-color: rgb(179, 128, 227)
-}
-
-.content {
+.app-wrapper-content {
     grid-area: c;
-    background-color: rgb(220, 145, 145)
+    background-color: rgb(111, 83, 49);
 }
