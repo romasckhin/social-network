@@ -9,9 +9,12 @@
 
     grid-template-rows: 60px 1fr;
     grid-template-columns: 2fr 10fr;
+
+    grid-gap: 10px;
 }
 
 .app-wrapper-content {
     grid-area: c;
-    background-color: rgb(111, 83, 49);
+    background-color: rgb(238, 232, 226);
+    min-height: 500px;
 }

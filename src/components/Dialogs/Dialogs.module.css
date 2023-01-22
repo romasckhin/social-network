@@ -1,3 +1,24 @@
-.content {
-    background-color: aqua;
+.dialogs {
+    background-color: rgb(199, 202, 224);
+    display: grid;
+
+    grid-template-columns: 2fr 10fr;
+}
+
+.dialogsItems {
+    padding: 10px;
+    line-height: 30px;
+}
+
+.dialogsItems .dialog {
+
+}
+
+.messages {
+    padding: 10px;
+    line-height: 30px;
+}
+
+.messages .message {
+
 }
