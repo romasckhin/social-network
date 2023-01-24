@@ -1,13 +1,16 @@
 import MyPosts from './MyPosts/MyPosts';
 import scl from './Profile.module.css'
 
-const Profile = () => {
+const Profile = ({posts}) => {
+
+
+
     return (
         <div className={scl.content}>
             <div>
-                Profile
+                Profile YEEEEE
             </div>
-            <MyPosts/>
+            <MyPosts posts={posts}/>
         </div>
     );
 };

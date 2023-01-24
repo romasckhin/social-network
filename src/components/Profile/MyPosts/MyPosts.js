@@ -1,11 +1,23 @@
 import scl from './MyPosts.module.css'
 import Post from './Post/Post'
 
-const MyPosts = () => {
+const MyPosts = ({posts}) => {
+    
+    
+
     return (
         <div>
-           My post
-           <Post/>
+            <h3>My Post</h3>
+            <input/>
+            <button>click</button>
+
+            {
+                posts.map(post => <Post
+                    key={post.id}
+                    message={post.message}
+                    likesCount={post.likesCount}                    
+                />)
+            }
         </div>
     );
 };

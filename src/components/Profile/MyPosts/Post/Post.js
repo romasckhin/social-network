@@ -1,7 +1,9 @@
-const Post = () => {
+
+const Post = ({message ,likesCount}) => {
     return (
         <div>
-            Post
+            {message}<br/>
+            {likesCount}
         </div>
     );
 };
