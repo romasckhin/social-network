@@ -5,8 +5,7 @@ import Profile from './components/Profile/Profile';
 import Dialogs from './components/Dialogs/Dialogs'
 import {Routes, Route} from 'react-router-dom'
 
-const App = ({state}) => {
-
+const App = ({state, addPost, updateNewPosttext}) => {
 
   return (
 
@@ -16,8 +15,8 @@ const App = ({state}) => {
 
       <div className='app-wrapper-content'>
         <Routes>
-          <Route path='/dialogs' element={<Dialogs dialogs={state.profilePage.dialogs} messages={state.profilePage.messages} />} />
-          <Route path='/profile' element={<Profile posts={state.messagePage.posts}/>} />
+          <Route path='/dialogs' element={<Dialogs dialogs={state.dialogPage.dialogs} messages={state.dialogPage.messages} />} />
+          <Route path='/profile' element={<Profile posts={state.profilePage.posts} addPost={addPost} state={state} updateNewPosttext={updateNewPosttext} />} />
         </Routes>
       </div>
       
