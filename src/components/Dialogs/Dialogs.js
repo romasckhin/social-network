@@ -5,8 +5,6 @@ import Message from './Message';
 const Dialogs = ({dialogs, messages}) => {
 
 
-debugger
-
     return (
         <div className={cls.dialogs}>
            <div className={cls.dialogsItems}>

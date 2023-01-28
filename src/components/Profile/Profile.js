@@ -9,7 +9,12 @@ const Profile = ({posts, addPost, state, updateNewPosttext}) => {
             <div>
                 Profile YEEEEE
             </div>
-            <MyPosts posts={posts} addPost={addPost} newPostText={state.profilePage.newPostText} updateNewPosttext={updateNewPosttext}/>
+            <MyPosts 
+                posts={posts} 
+                addPost={addPost} 
+                newPostText={state.profilePage.newPostText} 
+                updateNewPosttext={updateNewPosttext}
+                />
         </div>
     );
 };

@@ -1,51 +1,55 @@
 import { v4 as uuidv4 } from 'uuid';
 
-let state = {
-    profilePage: {
-        posts : [
-            { id: uuidv4(), message: 'This is my 1 post', likesCount: 5 },
-            { id: uuidv4(), message: 'This is my 2 post', likesCount: 53 },
-            { id: uuidv4(), message: 'This is my 3 post', likesCount: 32 },
-            { id: uuidv4(), message: 'This is my 4 post', likesCount: 245 },
-          ],
-          newPostText: 'it-kamasutra'
+let store = {
+
+    _state: {
+        profilePage: {
+            posts : [
+                { id: uuidv4(), message: 'This is my 1 post', likesCount: 5 },
+                { id: uuidv4(), message: 'This is my 2 post', likesCount: 53 },
+                { id: uuidv4(), message: 'This is my 3 post', likesCount: 32 },
+                { id: uuidv4(), message: 'This is my 4 post', likesCount: 245 },
+              ],
+              newPostText: ''
+        },
+        dialogPage: {
+            messages : [
+                { id: uuidv4(), message: 'Hi' },
+                { id: uuidv4(), message: 'House' },
+                { id: uuidv4(), message: 'Apartament' },
+              ],
+    
+              dialogs : [
+                { id: uuidv4(), name: 'Roman' },
+                { id: uuidv4(), name: 'Alina' },
+                { id: uuidv4(), name: 'Sabina' },
+                { id: uuidv4(), name: 'Arsen' },
+                { id: uuidv4(), name: 'Mandarina' },
+            ],
+        }
     },
 
-    dialogPage: {
-        messages : [
-            { id: uuidv4(), message: 'Hi' },
-            { id: uuidv4(), message: 'House' },
-            { id: uuidv4(), message: 'Apartament' },
-          ],
+    getState() {
+        return this._state;
+    },
+
+    _rerenderEntireTree() {},
+
+    addPost()  {
+        let newPost = { id: uuidv4(), message: this._state.profilePage.newPostText, likesCount: 10 }
+        this._state.profilePage.posts.push(newPost)
+        this._state.profilePage.newPostText = ''
+        this._rerenderEntireTree(this._state)
+    },
+
+    updateNewPosttext(newText) {
+        this._state.profilePage.newPostText = newText
+        this._rerenderEntireTree(this._state)
+    },
  
-          dialogs : [
-            { id: uuidv4(), name: 'Roman' },
-            { id: uuidv4(), name: 'Alina' },
-            { id: uuidv4(), name: 'Sabina' },
-            { id: uuidv4(), name: 'Arsen' },
-            { id: uuidv4(), name: 'Mandarina' },
-        ],
+    subscribe(observer) {
+        this._rerenderEntireTree = observer
     }
+ 
 }
-
-let  rerenderEntireTree = () => {
-    
-}
-
-export let addPost = () => {
-    let newPost = { id: uuidv4(), message: state.profilePage.newPostText, likesCount: 10 }
-    state.profilePage.posts.push(newPost)
-    state.profilePage.newPostText = ''
-    rerenderEntireTree(state)
-}
-
-export let updateNewPosttext = (newText) => {
-    state.profilePage.newPostText = newText
-    rerenderEntireTree(state)
-}
-
-export let subscribe = (observer) => {
-    rerenderEntireTree = observer
-}
-
-export default state
+export default store

@@ -4,17 +4,16 @@ import React from 'react';
 
 const MyPosts = ({posts, addPost, newPostText, updateNewPosttext}) => {
 
-
-    let newPostElement = React.createRef()
+    // плохая практика из за прямого обращение к DOM
+    let newPostElement = React.createRef() // ссылка на какой-то элемент
 
     let addButtonPost = () => {
         addPost()
     }
- 
+
     let onPostChange = () => {
         let text = newPostElement.current.value
         updateNewPosttext(text)
-
     }
     
     return (
