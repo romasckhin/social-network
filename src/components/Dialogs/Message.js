@@ -1,12 +1,17 @@
 import cls from './Dialogs.module.css'
-
+import React from 'react';
 
 const Message = ({message}) => {
-    
+
     
     return (
         <div className={cls.message}>
-            {message}
+                  
+            
+            <div>
+                {message}
+            </div>
+
         </div>
     );
 };

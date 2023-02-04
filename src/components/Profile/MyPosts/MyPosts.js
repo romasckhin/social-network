@@ -1,25 +1,25 @@
 import scl from './MyPosts.module.css'
 import Post from './Post/Post'
 import React from 'react';
+import {addPostActionCreator, updateNewPostTextCreator} from '../../../redux/profile-reduce'
 
-const MyPosts = ({posts, addPost, newPostText, updateNewPosttext}) => {
+const MyPosts = ({posts, dispatch, newPostText}) => {
 
-    // плохая практика из за прямого обращение к DOM
-    let newPostElement = React.createRef() // ссылка на какой-то элемент
+    
 
     let addButtonPost = () => {
-        addPost()
+        dispatch(addPostActionCreator())
     }
 
-    let onPostChange = () => {
-        let text = newPostElement.current.value
-        updateNewPosttext(text)
+    let onPostChange = (e) => {
+        let text = e.target.value
+        dispatch(updateNewPostTextCreator(text))
     }
     
     return (
         <div>
             <h3>My Post</h3>
-            <input ref={newPostElement} onChange={onPostChange} value={newPostText}  />
+            <input onChange={onPostChange} value={newPostText}  />
             <button onClick={addButtonPost} >click</button>
 
             {
