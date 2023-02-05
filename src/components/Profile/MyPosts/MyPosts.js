@@ -1,29 +1,29 @@
 import scl from './MyPosts.module.css'
 import Post from './Post/Post'
 import React from 'react';
-import {addPostActionCreator, updateNewPostTextCreator} from '../../../redux/profile-reduce'
 
-const MyPosts = ({posts, dispatch, newPostText}) => {
+const MyPosts = (props) => {
 
-    
+
+    let state = props.profileRducer
 
     let addButtonPost = () => {
-        dispatch(addPostActionCreator())
+        props.addMessage()
     }
 
     let onPostChange = (e) => {
         let text = e.target.value
-        dispatch(updateNewPostTextCreator(text))
+        props.updateNewMessage(text)
     }
     
     return (
         <div>
             <h3>My Post</h3>
-            <input onChange={onPostChange} value={newPostText}  />
+            <input onChange={onPostChange} value={state.newPostText}  />
             <button onClick={addButtonPost} >click</button>
 
             {
-                posts.map(post => <Post
+                state.posts.map(post => <Post
                     key={post.id}
                     message={post.message}
                     likesCount={post.likesCount}                    

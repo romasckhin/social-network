@@ -22,13 +22,16 @@ const profileRducer = (state = initialState, action) => {
         
         case "ADD_POST": 
             let newPost = { id: uuidv4(), message: state.newPostText, likesCount: 10 }
-            state.posts.push(newPost)
-            state.newPostText = ''
-            return state
+            let setState = {...state}
+            setState.posts = [...state.posts]
+            setState.posts.push(newPost)
+            setState.newPostText = ''
+            return setState
 
         case "UPDATE_NEW_POST_TEXT":
-             state.newPostText = action.newText;
-             return state
+            let stateCopy = {...state}
+            stateCopy.newPostText = action.newText;
+             return stateCopy
         
         default: 
             return state
